@@ -1,0 +1,3 @@
+RewriteEngine On
+RewriteBase /applog/api
+RewriteRule ^([^.]+)$ index.php?url=$1 [L,QSA]
