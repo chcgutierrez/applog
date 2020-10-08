@@ -55,7 +55,7 @@
                     echo "resource not exists response";
                 }
             }else{
-                echo "put root response";
+                echo "home";
             }
             echo is_array(self::$response) ? json_encode(self::$response) : self::$response;
             // echo json_encode(self::$response) : self::$response;

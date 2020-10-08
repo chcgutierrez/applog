@@ -31,18 +31,20 @@
         }
         public function update($id, $new_backlog_item){
             try{
-                validate(Backlog::class, $new_backlog_item);
-                $backlog_item = new Backlog(Backlog::find($id));
-                if(!empty($backlog)){
-                    $backlog_item->backlog_name = $new_backlog_item->backlog_name;
-                    $backlog_item->user_id = $new_backlog_item->user_id;
+                validate(BacklogItem::class, $new_backlog_item);
+                $backlog_item = new BacklogItem(BacklogItem::find($id));
+                if(!empty($backlog_item)){
+                    $backlog_item->backlog_item_name = $new_backlog_item->backlog_item_name;
+                    $backlog_item->backlog_item_description = $new_backlog_item->backlog_item_description;
+                    $backlog_item->backlog_item_effort = $new_backlog_item->backlog_item_effort;
+                    $backlog_item->backlog_id = $new_backlog_item->backlog_id;
                     $backlog_item->save();
                     $response = [
                         "message" => "updated succesfully"
                     ];
                     return response($response);
                 }else{
-                    echo "role not found";
+                    echo "backlog item not found";
                 }
             }catch(Exception $error){
                 echo $error->getMessage();

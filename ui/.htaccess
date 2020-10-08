@@ -1,0 +1,3 @@
+RewriteEngine On
+RewriteBase /applog/ui
+RewriteCond %{REQUEST_URI} !/applog/ui/assets
