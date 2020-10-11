@@ -26,7 +26,8 @@
     Service::use("backlogs", BacklogController::class);
     Service::use("backlog-items", BacklogItemController::class);
     Service::use("sprints", SprintController::class);
-    Service::use("sprint-items", BacklogItemController::class);
+    Service::use("sprint-item", SprintItemController::class);
+    Service::use("sprint-item-copy", SprintItemCopyController::class);
     Service::listen();
     function response($data = null, $code = 200){
         http_response_code($code);

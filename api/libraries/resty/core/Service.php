@@ -7,7 +7,7 @@
         private static $document;
         private static $body;
         private static $response;
-        public static function use($path, $resource) {
+        public static function use ($path, $resource) {
             self::$resources[$path] = $resource;
         }
         public static function listen(){
