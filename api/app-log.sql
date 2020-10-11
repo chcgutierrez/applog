@@ -55,9 +55,44 @@ create table if not exists sprint_items(
     foreign key (status_id) references status(status_id),
     foreign key (sprint_id) references sprints(sprint_id)
 );
+create table if not exists sprint_items_copy(
+    sprint_item_id int not null auto_increment,
+    backlog_item_id int not null,
+    status_id int not null,
+    sprint_id int not null,
+    item_display_order int not null default 0,
+    primary key(sprint_item_id),
+    foreign key (backlog_item_id) references backlog_items(backlog_item_id),
+    foreign key (status_id) references status(status_id),
+    foreign key (sprint_id) references sprints(sprint_id)
+);
 insert into roles (role_name) values ("product-owner");
 insert into status (status_name) values ("created"), ("started"), ("stand-by"), ("in-progress"), ("finished");
 insert into users (user_email, user_password, role_id) values ("owner@applog.com", "123", 1);
 insert into backlogs (backlog_name, user_id) values ("applog", 1);
 insert into backlog_items (backlog_item_name, backlog_item_description, backlog_item_effort, backlog_id) values ("Item 1", "Description of Item 1", 12, 1);
 insert into sprints (sprint_goal, backlog_id) values ("To make a backlog web app", 1);
+
+insert into sprint_items (backlog_item_id, status_id, sprint_id,)
+	values('1','1','1');
+    
+insert into sprint_items (backlog_item_id, status_id, sprint_id)
+	values('1','2','1');
+    
+insert into sprint_items (backlog_item_id, status_id, sprint_id)
+	values('1','3','1');
+    
+insert into sprint_items (backlog_item_id, status_id, sprint_id)
+	values('1','4','1');
+    
+insert into sprint_items_copy (backlog_item_id, status_id, sprint_id, item_display_order)
+	values('1','1','1','0');
+    
+insert into sprint_items_copy (backlog_item_id, status_id, sprint_id, item_display_order)
+	values('1','2','1','0');
+    
+insert into sprint_items_copy (backlog_item_id, status_id, sprint_id, item_display_order)
+	values('1','3','1','0');
+    
+insert into sprint_items_copy (backlog_item_id, status_id, sprint_id, item_display_order)
+	values('1','4','1','0');
